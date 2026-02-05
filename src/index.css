@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-pink: #ff2d55;
+  --font-display: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  background-color: #080808;
+  color: white;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #080808;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Custom Utilities for more control if Tailwind fails */
+.bg-dark { background-color: #080808; }
+.text-pink { color: #ff2d55; }
+.border-pink { border-color: #ff2d55; }
