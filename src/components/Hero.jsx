@@ -48,7 +48,7 @@ const Hero = () => {
             <span className="text-[10px] font-black text-black">SP</span>
           </div>
           <span className="font-black tracking-tighter text-xl group-hover:text-brand-pink transition-colors">
-            SUJAYA <span className="opacity-50">/</span> PARVATHY
+            SUJAYA <span className="opacity-50"> </span> PARVATHY
           </span>
         </div>
 
@@ -66,14 +66,6 @@ const Hero = () => {
               <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-brand-pink transition-all group-hover:w-full"></span>
             </motion.a>
           ))}
-          <motion.button
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1 }}
-            className="px-6 py-2 border border-white/20 rounded-full text-[10px] font-bold tracking-widest hover:bg-white hover:text-black transition-all"
-          >
-            LET'S TALK
-          </motion.button>
         </nav>
       </motion.header>
 

@@ -69,45 +69,49 @@ const ExperienceDetail = () => {
           className="mb-16"
         >
           <h2 className="text-brand-pink text-[10px] tracking-[0.5em] font-black uppercase mb-4 flex items-center gap-4">
-            <span className="w-12 h-[1px] bg-brand-pink"></span>
+            <span className="w-12 h-px bg-brand-pink"></span>
             Involvement
           </h2>
-          <h3 className="text-4xl lg:text-7xl font-black uppercase tracking-tighter leading-none">
+          <h3 className="text-3xl sm:text-4xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.9] lg:leading-none">
             EDITORIAL <br />
             <span className="text-brand-pink">DEEP DIVE</span>
           </h3>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-          {/* Left: Role List */}
-          <div className="lg:col-span-5 space-y-3 lg:space-y-4">
+          {/* Left: Role List - 2x2 Grid on mobile, Vertical on desktop */}
+          <div className="lg:col-span-4 grid grid-cols-2 lg:flex lg:flex-col gap-2 lg:gap-4">
             {detailedExperience.map((exp, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveIdx(idx)}
-                className={`w-full text-left p-4 lg:p-8 rounded-xl lg:rounded-2xl border transition-all duration-500 relative overflow-hidden group ${
+                className={`text-left p-3 lg:p-8 rounded-lg lg:rounded-2xl border transition-all duration-500 relative overflow-hidden group ${
                   activeIdx === idx
-                    ? "bg-brand-pink/5 border-brand-pink/30 scale-[1.01] lg:scale-[1.02]"
-                    : "bg-white/[0.02] border-white/5 hover:border-white/10"
+                    ? "bg-brand-pink/5 border-brand-pink/30 lg:scale-[1.02]"
+                    : "bg-white/2 border-white/5 hover:border-white/10"
                 }`}
               >
                 <div
-                  className={`absolute top-0 left-0 w-1 h-full bg-brand-pink transition-transform duration-500 ${activeIdx === idx ? "scale-y-100" : "scale-y-0"}`}
+                  className={`absolute top-0 left-0 w-1 h-full bg-brand-pink transition-transform duration-500 hidden lg:block ${activeIdx === idx ? "scale-y-100" : "scale-y-0"}`}
+                ></div>
+                {/* Mobile top highlight */}
+                <div
+                  className={`absolute top-0 left-0 w-full h-1 bg-brand-pink transition-transform duration-500 lg:hidden ${activeIdx === idx ? "scale-x-100" : "scale-x-0"}`}
                 ></div>
                 <div className="flex justify-between items-center">
-                  <div>
+                  <div className="min-w-0">
                     <h4
-                      className={`text-sm lg:text-base font-bold tracking-widest uppercase mb-1 transition-colors ${activeIdx === idx ? "text-brand-pink" : "text-white"}`}
+                      className={`text-[9px] sm:text-xs lg:text-base font-bold tracking-widest uppercase mb-0.5 lg:mb-1 transition-colors truncate ${activeIdx === idx ? "text-brand-pink" : "text-white"}`}
                     >
                       {exp.org}
                     </h4>
-                    <p className="text-[10px] lg:text-xs text-white/40 font-medium tracking-widest transition-colors">
+                    <p className="text-[7px] sm:text-[9px] lg:text-xs text-white/40 font-medium tracking-widest transition-colors truncate">
                       {exp.role}
                     </p>
                   </div>
                   <ChevronRight
-                    size={16}
-                    className={`transition-transform duration-500 ${activeIdx === idx ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"}`}
+                    size={14}
+                    className={`transition-transform duration-500 hidden lg:block shrink-0 ${activeIdx === idx ? "translate-x-0 opacity-100" : "-translate-x-4 opacity-0"}`}
                   />
                 </div>
               </button>
@@ -115,7 +119,7 @@ const ExperienceDetail = () => {
           </div>
 
           {/* Right: Detailed Points */}
-          <div className="lg:col-span-7 relative h-full">
+          <div className="lg:col-span-8 relative h-full">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIdx}
@@ -123,14 +127,14 @@ const ExperienceDetail = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="p-8 lg:p-12 bg-white/[0.01] border border-white/5 rounded-[40px] h-full"
+                className="p-6 lg:p-12 bg-white/1 border border-white/5 rounded-2xl lg:rounded-[40px] h-full"
               >
-                <div className="flex justify-between items-center mb-10 border-b border-white/5 pb-8">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 lg:mb-10 border-b border-white/5 pb-6 lg:pb-8 gap-4">
                   <div>
-                    <h5 className="text-2xl lg:text-4xl font-black uppercase tracking-tighter text-white">
+                    <h5 className="text-xl sm:text-2xl lg:text-4xl font-black uppercase tracking-tighter text-white">
                       {detailedExperience[activeIdx].org}
                     </h5>
-                    <p className="text-brand-pink text-xs font-bold tracking-[0.3em] uppercase mt-2">
+                    <p className="text-brand-pink text-[10px] lg:text-xs font-bold tracking-[0.3em] uppercase mt-1 lg:mt-2">
                       {detailedExperience[activeIdx].period}
                     </p>
                   </div>

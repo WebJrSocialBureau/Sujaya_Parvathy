@@ -57,7 +57,7 @@ const Timeline = () => {
             <span className="w-12 h-[1px] bg-brand-pink"></span>
             Career Timeline
           </h2>
-          <h3 className="text-5xl lg:text-7xl font-black uppercase tracking-tighter">
+          <h3 className="text-4xl sm:text-5xl lg:text-7xl font-black uppercase tracking-tighter leading-[0.9] lg:leading-none">
             THE <span className="text-brand-pink">JOURNEY</span>
           </h3>
         </motion.div>
