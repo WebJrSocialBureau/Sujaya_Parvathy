@@ -43,7 +43,7 @@ const timelineData = [
 const Timeline = () => {
   return (
     <section
-      id="work"
+      id="journal"
       className="bg-[#080808] py-24 px-8 lg:px-16 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">

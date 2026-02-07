@@ -15,7 +15,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#050505] pt-12 lg:pt-24 pb-12 px-6 lg:px-16 border-t border-white/5 relative">
+    <footer id="contact" className="bg-[#050505] pt-12 lg:pt-24 pb-12 px-6 lg:px-16 border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-12 gap-10 lg:gap-24 mb-12 lg:mb-20">
           <div className="col-span-12 lg:col-span-5 flex flex-col items-start text-left">
@@ -74,27 +74,10 @@ const Footer = () => {
                   <h4 className="text-white font-bold text-[10px] tracking-[0.4em] uppercase mb-4 lg:mb-8">
                     Contact
                   </h4>
-                  <ul className="space-y-3 lg:space-y-4 text-white/40 text-[9px] lg:text-xs tracking-widest uppercase">
+                  <ul className="space-y-3 lg:space-y-4 text-white/40 text-[9px] lg:text-xs tracking-widest">
                     <li>Kochi, Kerala, IN</li>
-                    <li className="break-all">editorial@sujayap.com</li>
-                    <li className="break-all">media.inquiries@bigtv.com</li>
+                    <li className="break-all">sujayaparvathy@time7.in</li>
                   </ul>
-                </div>
-              </div>
-
-              <div className="col-span-1">
-                <h4 className="text-white font-bold text-[10px] tracking-[0.4em] uppercase mb-4 lg:mb-8 text-left">
-                  Current Role
-                </h4>
-                <p className="text-brand-pink font-bold text-[9px] lg:text-xs tracking-widest mb-1 lg:mb-2 uppercase text-left">
-                  CHIEF EDITOR
-                </p>
-                <div className="flex items-center justify-start gap-2 text-white/40 text-[9px] lg:text-xs tracking-widest uppercase">
-                  <span>Big</span>
-                  <span className="bg-brand-pink text-black px-1 font-black text-[7px] lg:text-[9px]">
-                    TV
-                  </span>
-                  <span>Malayalam</span>
                 </div>
               </div>
             </div>
