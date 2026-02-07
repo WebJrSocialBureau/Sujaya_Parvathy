@@ -44,9 +44,6 @@ const Hero = () => {
         className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 lg:px-16 py-8 mix-blend-difference"
       >
         <div className="flex items-center gap-2 group cursor-pointer">
-          <div className="w-8 h-8 rounded-full bg-brand-pink flex items-center justify-center overflow-hidden">
-            <span className="text-[10px] font-black text-black">SP</span>
-          </div>
           <span className="font-black tracking-tighter text-xl group-hover:text-brand-pink transition-colors">
             SUJAYA <span className="opacity-50"> </span> PARVATHY
           </span>
@@ -174,16 +171,6 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Vertical Badge */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 2 }}
-            className="absolute -right-4 top-1/2 -translate-y-1/2 vertical-text text-[8px] tracking-[0.5em] text-white/30 font-bold uppercase hidden lg:block"
-            style={{ writingMode: "vertical-rl" }}
-          >
-            ESTABLISHED MMXXVI
-          </motion.div>
         </div>
       </main>
 
@@ -206,19 +193,6 @@ const Hero = () => {
         ))}
       </motion.div>
 
-      {/* Bottom Status Bar */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2.2 }}
-        className="fixed bottom-0 left-0 w-full z-40 px-8 lg:px-16 py-6 border-t border-white/5 flex justify-between items-center text-[8px] tracking-[0.4em] font-black pointer-events-none"
-      >
-        <div className="flex gap-10">
-          <span className="text-brand-pink">READY TO SHOOT</span>
-          <span className="text-white/20">CURRENT LOCATION: MUMBAI, IN</span>
-        </div>
-        <div className="text-white/20">© 2026 ALL RIGHTS RESERVED</div>
-      </motion.div>
 
       {/* Styles */}
       <style

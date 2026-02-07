@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import BackToTop from "./BackToTop";
 import {
   Instagram,
   Twitter,
@@ -20,11 +21,6 @@ const Footer = () => {
         <div className="grid grid-cols-12 gap-10 lg:gap-24 mb-12 lg:mb-20">
           <div className="col-span-12 lg:col-span-5 flex flex-col items-start text-left">
             <div className="flex items-center gap-2 mb-4 lg:mb-8">
-              <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-brand-pink flex items-center justify-center overflow-hidden shrink-0">
-                <span className="text-[10px] lg:text-xs font-black text-black">
-                  SP
-                </span>
-              </div>
               <span className="font-black tracking-tighter text-lg lg:text-2xl uppercase text-left">
                 SUJAYA PARVATHY
               </span>
@@ -46,6 +42,11 @@ const Footer = () => {
                   </a>
                 ),
               )}
+            </div>
+            <div className="mt-10">
+              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="text-gray-200 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-8 sm:mb-10 font-light leading-relaxed">
+                Designed by <a style={{ fontFamily: "MyFont, sans-serif" }} href='https://socialbureau.in'>Social<span className="text-[#ff0000]">B</span>ureau</a>
+              </motion.p>
             </div>
           </div>
 
@@ -69,42 +70,25 @@ const Footer = () => {
                     ))}
                   </ul>
                 </div>
-
-                <div className="mb-10 lg:mb-0">
-                  <h4 className="text-white font-bold text-[10px] tracking-[0.4em] uppercase mb-4 lg:mb-8">
-                    Contact
-                  </h4>
-                  <ul className="space-y-3 lg:space-y-4 text-white/40 text-[9px] lg:text-xs tracking-widest uppercase">
-                    <li>Kochi, Kerala, IN</li>
-                    <li className="break-all">editorial@sujayap.com</li>
-                    <li className="break-all">media.inquiries@bigtv.com</li>
-                  </ul>
-                </div>
               </div>
 
               <div className="col-span-1">
                 <h4 className="text-white font-bold text-[10px] tracking-[0.4em] uppercase mb-4 lg:mb-8 text-left">
-                  Current Role
+                  Contact
                 </h4>
-                <p className="text-brand-pink font-bold text-[9px] lg:text-xs tracking-widest mb-1 lg:mb-2 uppercase text-left">
-                  CHIEF EDITOR
-                </p>
-                <div className="flex items-center justify-start gap-2 text-white/40 text-[9px] lg:text-xs tracking-widest uppercase">
-                  <span>Big</span>
-                  <span className="bg-brand-pink text-black px-1 font-black text-[7px] lg:text-[9px]">
-                    TV
-                  </span>
-                  <span>Malayalam</span>
-                </div>
+                <ul className="space-y-3 lg:space-y-4 text-white/40 text-[9px] lg:text-xs tracking-widest uppercase">
+                  <li>Kochi, Kerala, IN</li>
+                  <li className="break-all">editorial@sujayap.com</li>
+                  <li className="break-all">media.inquiries@bigtv.com</li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
 
+        <BackToTop />
+        {/* 
         <div className="pt-8 lg:pt-12 border-t border-white/5 flex flex-col-reverse md:flex-row justify-between items-center gap-8 lg:gap-8">
-          <p className="text-[8px] lg:text-[10px] font-bold text-white/20 tracking-[0.4em] text-left leading-relaxed">
-            © 2026 SUJAYA PARVATHY. ALL RIGHTS RESERVED.
-          </p>
 
           <button
             onClick={scrollToTop}
@@ -117,7 +101,7 @@ const Footer = () => {
               <ArrowUp size={14} lgSize={16} strokeWidth={2} />
             </div>
           </button>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

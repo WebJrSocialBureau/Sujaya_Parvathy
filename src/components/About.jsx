@@ -37,11 +37,6 @@ const About = () => {
               </blockquote>
 
               <div className="mt-8 lg:mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-6">
-                <div className="w-12 h-12 lg:w-16 lg:h-16 rounded-full border border-white/10 flex items-center justify-center p-1">
-                  <div className="w-full h-full rounded-full bg-brand-pink/20 flex items-center justify-center text-[8px] lg:text-[10px] font-black">
-                    SP
-                  </div>
-                </div>
                 <div>
                   <p className="text-white font-bold tracking-widest text-[9px] lg:text-xs uppercase">
                     SUJAYA PARVATHY
