@@ -15,7 +15,12 @@ const Hero = () => {
   const y2 = useTransform(scrollY, [0, 500], [0, -100]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
-  const navLinks = ["WORK", "JOURNAL", "ABOUT", "CONTACT"];
+  const navLinks = [
+    { label: "WORK", href: "#work" },
+    { label: "JOURNAL", href: "#journal" },
+    { label: "ABOUT", href: "#about" },
+    { label: "CONTACT", href: "#contact" },
+  ];
   const socials = [
     { icon: Instagram, label: "IG" },
     { icon: Twitter, label: "X" },
@@ -52,14 +57,14 @@ const Hero = () => {
         <nav className="hidden md:flex gap-10 items-center">
           {navLinks.map((link, i) => (
             <motion.a
-              key={link}
-              href="#"
+              key={link.label}
+              href={link.href}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * i + 0.5 }}
               className="text-[10px] tracking-[0.3em] font-bold hover:text-brand-pink transition-all relative group"
             >
-              {link}
+              {link.label}
               <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-brand-pink transition-all group-hover:w-full"></span>
             </motion.a>
           ))}
@@ -91,15 +96,10 @@ const Hero = () => {
                 ease: [0.22, 1, 0.36, 1],
                 delay: 0.7,
               }}
-              className="text-6xl sm:text-[15vw] lg:text-[11vw] leading-[0.9] lg:leading-[0.8] font-black tracking-tighter m-0 uppercase"
+              className="text-4xl sm:text-[15vw] lg:text-[9vw] leading-[0.9] lg:leading-[0.8] font-black tracking-tighter m-0 uppercase break-words"
             >
               SUJAYA <br />
-              <span
-                className="text-transparent"
-                style={{ WebkitTextStroke: "1px white" }}
-              >
-                PARVATHY
-              </span>
+              <span className="stroke-outline">PARVATHY</span>
             </motion.h1>
 
             {/* Background Text Accent */}
@@ -198,10 +198,18 @@ const Hero = () => {
       <style
         dangerouslySetInnerHTML={{
           __html: `
-        .text-transparent {
-          -webkit-text-fill-color: transparent;
-        }
-      `,
+          /* Make last name filled on small screens and outlined on large */
+          .stroke-outline {
+            -webkit-text-fill-color: white;
+            -webkit-text-stroke: 0px white;
+          }
+          @media (min-width: 1024px) {
+            .stroke-outline {
+              -webkit-text-fill-color: transparent;
+              -webkit-text-stroke: 1px white;
+            }
+          }
+        `,
         }}
       />
     </div>

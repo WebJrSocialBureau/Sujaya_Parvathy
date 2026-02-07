@@ -43,7 +43,7 @@ const timelineData = [
 const Timeline = () => {
   return (
     <section
-      id="work"
+      id="journal"
       className="bg-[#080808] py-24 px-8 lg:px-16 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
@@ -77,7 +77,7 @@ const Timeline = () => {
                 className={`flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-8 ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}
               >
                 {/* Content Card */}
-                <div className="w-full md:w-1/2 group ml-4 md:ml-0">
+                <div className="w-full md:w-1/2 group pl-8 md:pl-0">
                   <div className="p-6 lg:p-12 border border-white/5 rounded-xl lg:rounded-2xl bg-white/[0.02] hover:bg-brand-pink/[0.02] hover:border-brand-pink/20 transition-all duration-500 relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-brand-pink/5 blur-[40px] -translate-y-1/2 translate-x-1/2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
 

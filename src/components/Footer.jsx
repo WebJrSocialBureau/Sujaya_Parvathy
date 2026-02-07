@@ -7,101 +7,102 @@ import {
   Youtube,
   Facebook,
   Linkedin,
-  ArrowUp,
 } from "lucide-react";
 
 const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
-    <footer className="bg-[#050505] pt-12 lg:pt-24 pb-12 px-6 lg:px-16 border-t border-white/5 relative">
+    <footer id="contact" className="bg-[#050505] pt-16 lg:pt-24 pb-12 px-6 lg:px-16 border-t border-white/5 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-12 gap-10 lg:gap-24 mb-12 lg:mb-20">
-          <div className="col-span-12 lg:col-span-5 flex flex-col items-start text-left">
-            <div className="flex items-center gap-2 mb-4 lg:mb-8">
-              <span className="font-black tracking-tighter text-lg lg:text-2xl uppercase text-left">
-                SUJAYA PARVATHY
-              </span>
-            </div>
-            <p className="text-white/40 text-[10px] sm:text-sm leading-relaxed font-light tracking-wide max-w-sm mb-8 lg:mb-12 text-left">
-              Media leader and broadcast journalist dedicated to editorial
-              excellence and journalistic independence. Leading the future of
-              news at Big TV Malayalam.
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          {/* Column 1 - Logo */}
+          <div className="col-span-1">
+            <h3 className="font-black tracking-tighter text-sm uppercase mb-3">
+              SUJAYA PARVATHY
+            </h3>
+            <p className="text-white/40 text-[9px] leading-relaxed font-light max-w-xs">
+              Media leader and broadcast journalist dedicated to editorial excellence and journalistic independence.
             </p>
-            <div className="flex gap-2 sm:gap-6 justify-start">
+            <a href="https://bigtv24x7.com">
+              <img
+                src="/LOGO (2).png"
+                alt="Big TV Logo"
+                className="w-32 h-auto mb-8"
+              /></a>
+          </div>
+
+          {/* Column 2 - Navigation */}
+          <div className="col-span-1">
+            <h4 className="text-white font-bold text-[10px] tracking-[0.4em] uppercase mb-6">
+              Navigation
+            </h4>
+            <ul className="space-y-3">
+              {["Work", "Journal", "About", "Contact"].map((link) => (
+                <li key={link}>
+                  <a
+                    href={`#${link.toLowerCase()}`}
+                    className="text-white/40 text-[9px] hover:text-brand-pink transition-colors tracking-widest uppercase"
+                  >
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3 - Contact */}
+          <div className="col-span-1">
+            <h4 className="text-white font-bold text-[10px] tracking-[0.4em] uppercase mb-6">
+              Contact
+            </h4>
+            <ul className="space-y-3 text-white/40 text-[9px] tracking-widest uppercase">
+              <li>Kochi, Kerala, IN</li>
+              <li className="break-all">editorial@sujayap.com</li>
+              <li className="break-all">media.inquiries@bigtv.com</li>
+            </ul>
+          </div>
+
+          {/* Column 4 - Social */}
+          <div className="col-span-1">
+            <h4 className="text-white font-bold text-[10px] tracking-[0.4em] uppercase mb-6">
+              Follow
+            </h4>
+            <div className="flex gap-3">
               {[Instagram, Twitter, Youtube, Facebook, Linkedin].map(
                 (Icon, i) => (
                   <a
                     key={i}
                     href="#"
-                    className="w-9 h-9 lg:w-10 lg:h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-brand-pink hover:border-brand-pink transition-all"
+                    className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-brand-pink hover:border-brand-pink transition-all"
                   >
-                    <Icon size={14} lgSize={16} strokeWidth={1.5} />
+                    <Icon size={12} strokeWidth={1.5} />
                   </a>
                 ),
               )}
             </div>
-            <div className="mt-10">
-              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.8 }} className="text-gray-200 text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-8 sm:mb-10 font-light leading-relaxed">
-                Designed by <a style={{ fontFamily: "MyFont, sans-serif" }} href='https://socialbureau.in'>Social<span className="text-[#ff0000]">B</span>ureau</a>
-              </motion.p>
-            </div>
-          </div>
-
-          <div className="col-span-12 lg:col-span-7">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12 text-left">
-              <div className="col-span-1">
-                <div className="mb-10 lg:mb-16">
-                  <h4 className="text-white font-bold text-[10px] tracking-[0.4em] uppercase mb-4 lg:mb-8">
-                    Navigation
-                  </h4>
-                  <ul className="space-y-3 lg:space-y-4">
-                    {["Work", "Journal", "About", "Contact"].map((link) => (
-                      <li key={link}>
-                        <a
-                          href={`#${link.toLowerCase()}`}
-                          className="text-white/40 text-[9px] lg:text-xs hover:text-brand-pink transition-colors tracking-widest uppercase"
-                        >
-                          {link}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              <div className="col-span-1">
-                <h4 className="text-white font-bold text-[10px] tracking-[0.4em] uppercase mb-4 lg:mb-8 text-left">
-                  Contact
-                </h4>
-                <ul className="space-y-3 lg:space-y-4 text-white/40 text-[9px] lg:text-xs tracking-widest uppercase">
-                  <li>Kochi, Kerala, IN</li>
-                  <li className="break-all">editorial@sujayap.com</li>
-                  <li className="break-all">media.inquiries@bigtv.com</li>
-                </ul>
-              </div>
-            </div>
           </div>
         </div>
 
-        <BackToTop />
-        {/* 
-        <div className="pt-8 lg:pt-12 border-t border-white/5 flex flex-col-reverse md:flex-row justify-between items-center gap-8 lg:gap-8">
-
-          <button
-            onClick={scrollToTop}
-            className="flex items-center gap-3 lg:gap-4 group"
+        {/* Bottom Section */}
+        <div className="pt-3 flex flex-col md:flex-row justify-between items-center gap-6">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-gray-400 text-[8px] tracking-widest font-light"
           >
-            <span className="text-[9px] lg:text-[10px] font-bold tracking-[0.3em] text-white/40 group-hover:text-brand-pink transition-colors uppercase">
-              Back to Top
-            </span>
-            <div className="w-9 h-9 lg:w-10 lg:h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-brand-pink group-hover:bg-brand-pink group-hover:text-black transition-all">
-              <ArrowUp size={14} lgSize={16} strokeWidth={2} />
-            </div>
-          </button>
-        </div> */}
+            Designed by{" "}
+            <a
+              style={{ fontFamily: "MyFont, sans-serif" }}
+              href="https://socialbureau.in"
+              className="text-white/60 hover:text-brand-pink transition-colors"
+            >
+              Social<span className="text-[#ff0000]">B</span>ureau
+            </a>
+          </motion.p>
+
+          <BackToTop />
+        </div>
       </div>
     </footer>
   );
