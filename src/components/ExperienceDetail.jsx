@@ -85,11 +85,10 @@ const ExperienceDetail = () => {
               <button
                 key={idx}
                 onClick={() => setActiveIdx(idx)}
-                className={`text-left p-3 lg:p-8 rounded-lg lg:rounded-2xl border transition-all duration-500 relative overflow-hidden group ${
-                  activeIdx === idx
+                className={`text-left p-3 lg:p-8 rounded-lg lg:rounded-2xl border transition-all duration-500 relative overflow-hidden group ${activeIdx === idx
                     ? "bg-brand-pink/5 border-brand-pink/30 lg:scale-[1.02]"
                     : "bg-white/2 border-white/5 hover:border-white/10"
-                }`}
+                  }`}
               >
                 <div
                   className={`absolute top-0 left-0 w-1 h-full bg-brand-pink transition-transform duration-500 hidden lg:block ${activeIdx === idx ? "scale-y-100" : "scale-y-0"}`}

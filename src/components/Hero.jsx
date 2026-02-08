@@ -15,7 +15,12 @@ const Hero = () => {
   const y2 = useTransform(scrollY, [0, 500], [0, -100]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
-  const navLinks = ["WORK", "JOURNAL", "ABOUT", "CONTACT"];
+  const navLinks = [
+    { label: "WORK", href: "#work" },
+    { label: "JOURNAL", href: "#journal" },
+    { label: "ABOUT", href: "#about" },
+    { label: "CONTACT", href: "#contact" },
+  ];
   const socials = [
     { icon: Instagram, label: "IG" },
     { icon: Twitter, label: "X" },
@@ -44,9 +49,6 @@ const Hero = () => {
         className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 lg:px-16 py-8 mix-blend-difference"
       >
         <div className="flex items-center gap-2 group cursor-pointer">
-          <div className="w-8 h-8 rounded-full bg-brand-pink flex items-center justify-center overflow-hidden">
-            <span className="text-[10px] font-black text-black">SP</span>
-          </div>
           <span className="font-black tracking-tighter text-xl group-hover:text-brand-pink transition-colors">
             SUJAYA <span className="opacity-50"> </span> PARVATHY
           </span>
@@ -55,14 +57,14 @@ const Hero = () => {
         <nav className="hidden md:flex gap-10 items-center">
           {navLinks.map((link, i) => (
             <motion.a
-              key={link}
-              href="#"
+              key={link.label}
+              href={link.href}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * i + 0.5 }}
               className="text-[10px] tracking-[0.3em] font-bold hover:text-brand-pink transition-all relative group"
             >
-              {link}
+              {link.label}
               <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-brand-pink transition-all group-hover:w-full"></span>
             </motion.a>
           ))}
@@ -94,15 +96,10 @@ const Hero = () => {
                 ease: [0.22, 1, 0.36, 1],
                 delay: 0.7,
               }}
-              className="text-6xl sm:text-[15vw] lg:text-[11vw] leading-[0.9] lg:leading-[0.8] font-black tracking-tighter m-0 uppercase"
+              className="text-4xl sm:text-[15vw] lg:text-[9vw] leading-[0.9] lg:leading-[0.8] font-black tracking-tighter m-0 uppercase break-words"
             >
               SUJAYA <br />
-              <span
-                className="text-transparent"
-                style={{ WebkitTextStroke: "1px white" }}
-              >
-                PARVATHY
-              </span>
+              <span className="stroke-outline">PARVATHY</span>
             </motion.h1>
 
             {/* Background Text Accent */}
@@ -174,16 +171,6 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          {/* Vertical Badge */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 2 }}
-            className="absolute -right-4 top-1/2 -translate-y-1/2 vertical-text text-[8px] tracking-[0.5em] text-white/30 font-bold uppercase hidden lg:block"
-            style={{ writingMode: "vertical-rl" }}
-          >
-            ESTABLISHED MMXXVI
-          </motion.div>
         </div>
       </main>
 
@@ -206,28 +193,23 @@ const Hero = () => {
         ))}
       </motion.div>
 
-      {/* Bottom Status Bar */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2.2 }}
-        className="fixed bottom-0 left-0 w-full z-40 px-8 lg:px-16 py-6 border-t border-white/5 flex justify-between items-center text-[8px] tracking-[0.4em] font-black pointer-events-none"
-      >
-        <div className="flex gap-10">
-          <span className="text-brand-pink">READY TO SHOOT</span>
-          <span className="text-white/20">CURRENT LOCATION: MUMBAI, IN</span>
-        </div>
-        <div className="text-white/20">© 2026 ALL RIGHTS RESERVED</div>
-      </motion.div>
 
       {/* Styles */}
       <style
         dangerouslySetInnerHTML={{
           __html: `
-        .text-transparent {
-          -webkit-text-fill-color: transparent;
-        }
-      `,
+          /* Make last name filled on small screens and outlined on large */
+          .stroke-outline {
+            -webkit-text-fill-color: white;
+            -webkit-text-stroke: 0px white;
+          }
+          @media (min-width: 1024px) {
+            .stroke-outline {
+              -webkit-text-fill-color: transparent;
+              -webkit-text-stroke: 1px white;
+            }
+          }
+        `,
         }}
       />
     </div>

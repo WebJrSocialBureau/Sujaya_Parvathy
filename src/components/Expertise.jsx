@@ -76,8 +76,8 @@ function SearchIcon({ size }) {
 const Expertise = () => {
   return (
     <section
-      id="expertise"
-      className="bg-[#080808] py-24 px-8 lg:px-16 border-y border-white/5"
+      id="work"
+      className="bg-[#080808] py-24 px-8 lg:px-16 border-y border-white/5 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-12 gap-8 lg:gap-24 items-end mb-16 lg:mb-20">
