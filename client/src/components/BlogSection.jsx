@@ -27,7 +27,7 @@ const BlogSection = () => {
   if (blogs.length === 0) return null;
 
   return (
-    <section id="journal" className="py-24 px-8 lg:px-16 bg-[#080808]">
+    <section id="blogs" className="py-24 px-8 lg:px-16 bg-[#080808]">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div>

@@ -37,9 +37,7 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleDelete = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this post?")) return;
-
+  const performDelete = async (id) => {
     const deletePromise = axios.delete(
       `${import.meta.env.VITE_API_URL}/blogs/${id}`,
       {
@@ -59,6 +57,45 @@ const AdminDashboard = () => {
     } catch (err) {
       console.error("Error deleting blog:", err);
     }
+  };
+
+  const handleDelete = (id) => {
+    toast(
+      (t) => (
+        <div className="flex flex-col gap-4 p-1">
+          <p className="text-[11px] font-black uppercase tracking-[0.2em] text-white/90">
+            Delete this story permanently?
+          </p>
+          <div className="flex gap-3">
+            <button
+              onClick={() => {
+                toast.dismiss(t.id);
+                performDelete(id);
+              }}
+              className="flex-1 bg-red-500 hover:bg-red-600 text-white text-[9px] font-black px-4 py-2.5 rounded-lg uppercase tracking-[0.2em] transition-all shadow-lg shadow-red-500/20"
+            >
+              Delete
+            </button>
+            <button
+              onClick={() => toast.dismiss(t.id)}
+              className="flex-1 bg-white/10 hover:bg-white/20 text-white text-[9px] font-black px-4 py-2.5 rounded-lg uppercase tracking-[0.2em] transition-all"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      ),
+      {
+        duration: Infinity,
+        position: "top-center",
+        style: {
+          background: "#0d0d0d",
+          border: "1px solid rgba(255,255,255,0.1)",
+          padding: "20px",
+          minWidth: "300px",
+        },
+      },
+    );
   };
 
   const handleLogout = () => {

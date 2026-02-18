@@ -111,16 +111,6 @@ const Login = () => {
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
         </form>
-
-        <p className="mt-8 text-center text-white/40 text-sm font-light">
-          Don't have an account?{" "}
-          <Link
-            to="/signup"
-            className="text-brand-pink font-bold hover:underline"
-          >
-            Sign up
-          </Link>
-        </p>
       </motion.div>
     </div>
   );
