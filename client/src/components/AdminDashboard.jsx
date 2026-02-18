@@ -26,7 +26,7 @@ const AdminDashboard = () => {
 
   const fetchBlogs = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/blogs");
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/blogs`);
       setBlogs(res.data);
     } catch (err) {
       console.error("Error fetching blogs:", err);
@@ -39,7 +39,7 @@ const AdminDashboard = () => {
     if (!window.confirm("Are you sure you want to delete this post?")) return;
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/blogs/${id}`, {
+      await axios.delete(`${import.meta.env.VITE_API_URL}/blogs/${id}`, {
         headers: { "x-auth-token": token },
       });
       setBlogs(blogs.filter((blog) => blog._id !== id));

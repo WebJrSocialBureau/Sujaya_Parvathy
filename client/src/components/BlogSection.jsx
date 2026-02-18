@@ -11,7 +11,7 @@ const BlogSection = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/blogs");
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/blogs`);
         // Only take the latest 3 blogs
         setBlogs(res.data.slice(0, 3));
       } catch (err) {

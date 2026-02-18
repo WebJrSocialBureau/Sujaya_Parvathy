@@ -52,8 +52,8 @@ const BlogForm = ({ blog, onSave, onCancel }) => {
     try {
       const token = localStorage.getItem("token");
       const url = formData._id
-        ? `http://localhost:5000/api/blogs/${formData._id}`
-        : "http://localhost:5000/api/blogs";
+        ? `${import.meta.env.VITE_API_URL}/blogs/${formData._id}`
+        : `${import.meta.env.VITE_API_URL}/blogs`;
       const method = formData._id ? "put" : "post";
 
       const res = await axios[method](url, formData, {
