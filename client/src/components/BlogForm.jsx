@@ -6,9 +6,12 @@ import {
   Save,
   X,
   Type,
+  AlertCircle,
+  Layout,
+  List,
   AlignLeft,
-  List as ListIcon,
 } from "lucide-react";
+import toast from "react-hot-toast";
 import axios from "axios";
 
 const BlogForm = ({ blog, onSave, onCancel }) => {
@@ -21,6 +24,7 @@ const BlogForm = ({ blog, onSave, onCancel }) => {
       content: [{ type: "paragraph", text: "" }],
     },
   );
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -49,6 +53,7 @@ const BlogForm = ({ blog, onSave, onCancel }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null); // Clear previous errors
     try {
       const token = localStorage.getItem("token");
       const url = formData._id
@@ -59,10 +64,13 @@ const BlogForm = ({ blog, onSave, onCancel }) => {
       const res = await axios[method](url, formData, {
         headers: { "x-auth-token": token },
       });
+      toast.success(formData._id ? "Story updated!" : "Story published!");
       onSave(res.data);
     } catch (err) {
-      console.error("Error saving blog:", err);
-      alert("Failed to save blog");
+      const message = err.response?.data?.message || "Failed to save blog";
+      setError(message);
+      toast.error(message);
+    } finally {
     }
   };
 

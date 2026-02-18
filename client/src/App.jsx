@@ -6,7 +6,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import Lenis from "lenis";
-import "lenis/dist/lenis.css";
+import { Toaster } from "react-hot-toast";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -58,6 +58,7 @@ const ProtectedRoute = ({ children }) => {
 function App() {
   return (
     <Router>
+      <Toaster position="top-right" />
       <Routes>
         <Route path="/" element={<MainLayout />} />
         <Route path="/login" element={<Login />} />

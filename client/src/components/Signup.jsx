@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import toast from "react-hot-toast";
 import { UserPlus, Mail, Lock, ArrowRight } from "lucide-react";
 
 const Signup = () => {
@@ -22,9 +23,12 @@ const Signup = () => {
       );
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
+      toast.success("Account created successfully!");
       navigate("/admin");
     } catch (err) {
-      setError(err.response?.data?.message || "Registration failed");
+      const message = err.response?.data?.message || "Registration failed";
+      setError(message);
+      toast.error(message);
     } finally {
       setLoading(false);
     }

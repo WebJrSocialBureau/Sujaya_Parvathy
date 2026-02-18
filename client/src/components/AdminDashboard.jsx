@@ -10,7 +10,9 @@ import {
   FileText,
   Settings,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import { Eye } from "lucide-react";
 import BlogForm from "./BlogForm";
 
 const AdminDashboard = () => {
@@ -37,11 +39,22 @@ const AdminDashboard = () => {
 
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this post?")) return;
+
+    const deletePromise = axios.delete(
+      `${import.meta.env.VITE_API_URL}/blogs/${id}`,
+      {
+        headers: { "x-auth-token": localStorage.getItem("token") },
+      },
+    );
+
+    toast.promise(deletePromise, {
+      loading: "Deleting story...",
+      success: "Story deleted successfully",
+      error: "Failed to delete story",
+    });
+
     try {
-      const token = localStorage.getItem("token");
-      await axios.delete(`${import.meta.env.VITE_API_URL}/blogs/${id}`, {
-        headers: { "x-auth-token": token },
-      });
+      await deletePromise;
       setBlogs(blogs.filter((blog) => blog._id !== id));
     } catch (err) {
       console.error("Error deleting blog:", err);
@@ -70,17 +83,9 @@ const AdminDashboard = () => {
         </div>
 
         <div className="flex-1 space-y-2">
-          <button className="w-full flex items-center gap-3 px-4 py-3 bg-brand-pink/10 text-brand-pink rounded-xl font-bold text-xs tracking-widest uppercase">
+          <button className="w-full flex items-center gap-3 px-4 py-3 bg-brand-pink/10 text-brand-pink rounded-xl font-bold text-xs tracking-widest uppercase text-left">
             <FileText className="w-4 h-4" />
             Journal
-          </button>
-          <button className="w-full flex items-center gap-3 px-4 py-3 text-white/40 hover:text-white transition-colors rounded-xl font-bold text-xs tracking-widest uppercase">
-            <Layout className="w-4 h-4" />
-            Layout
-          </button>
-          <button className="w-full flex items-center gap-3 px-4 py-3 text-white/40 hover:text-white transition-colors rounded-xl font-bold text-xs tracking-widest uppercase">
-            <Settings className="w-4 h-4" />
-            Settings
           </button>
         </div>
 
@@ -136,15 +141,25 @@ const AdminDashboard = () => {
                         {blog.category}
                       </span>
                       <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <Link
+                          to={`/blog/${blog._id}`}
+                          target="_blank"
+                          className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+                          title="View Live"
+                        >
+                          <Eye className="w-4 h-4 text-white/40" />
+                        </Link>
                         <button
                           onClick={() => openForm(blog)}
                           className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+                          title="Edit"
                         >
                           <Edit2 className="w-4 h-4 text-white/40" />
                         </button>
                         <button
                           onClick={() => handleDelete(blog._id)}
                           className="p-2 hover:bg-red-500/20 rounded-lg transition-colors"
+                          title="Delete"
                         >
                           <Trash2 className="w-4 h-4 text-red-500/50" />
                         </button>

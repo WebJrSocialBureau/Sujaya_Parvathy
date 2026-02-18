@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-import { Mail, Lock, ArrowRight } from "lucide-react";
+import toast from "react-hot-toast";
+import { LogIn, Mail, Lock, ArrowRight } from "lucide-react";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -22,9 +23,12 @@ const Login = () => {
       );
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
+      toast.success("Welcome back!");
       navigate("/admin");
     } catch (err) {
-      setError(err.response?.data?.message || "Invalid credentials");
+      const message = err.response?.data?.message || "Login failed";
+      setError(message);
+      toast.error(message);
     } finally {
       setLoading(false);
     }
