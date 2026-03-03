@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { Calendar, User, Search, Filter } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
@@ -34,6 +35,15 @@ const BlogList = () => {
 
   return (
     <div className="min-h-screen bg-[#080808] text-white">
+      <Helmet>
+        <title>Journal Archive | Sujaya Parvathy</title>
+        <meta
+          name="description"
+          content="Explore the journal archive of Sujaya Parvathy. Award-winning journalism, multimedia stories, and more."
+        />
+        <link rel="canonical" href="https://sujayaparvathy.com/blogs" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
       <Navbar />
 
       <main className="pt-32 pb-24 px-8 lg:px-16 max-w-7xl mx-auto">

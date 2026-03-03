@@ -11,6 +11,7 @@ import {
   Twitter,
   Linkedin,
 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 
@@ -62,6 +63,24 @@ const BlogDetail = () => {
 
   return (
     <div className="min-h-screen bg-[#080808] text-white">
+      <Helmet>
+        <title>{`${blog.title} | Sujaya Parvathy`}</title>
+        <meta
+          name="description"
+          content={
+            blog.excerpt?.substring(0, 150) ||
+            `Read ${blog.title} by Sujaya Parvathy.`
+          }
+        />
+        <link
+          rel="canonical"
+          href={`https://sujayaparvathy.com/blog/${blog._id}`}
+        />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content={blog.title} />
+        <meta property="og:description" content={blog.excerpt} />
+        <meta property="og:type" content="article" />
+      </Helmet>
       <Navbar />
 
       <main className="pt-32 pb-24 px-8 lg:px-16 max-w-4xl mx-auto">

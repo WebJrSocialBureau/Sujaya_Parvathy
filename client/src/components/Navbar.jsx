@@ -1,8 +1,10 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/";
 
@@ -17,6 +19,9 @@ const Navbar = () => {
 
   // Placeholder for auth state - in a real app this would come from a context
   const isLoggedIn = localStorage.getItem("token");
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <motion.header
@@ -72,6 +77,67 @@ const Navbar = () => {
           ))
         )}
       </nav>
+
+      {/* Mobile Menu Toggle */}
+      <button
+        onClick={toggleMenu}
+        className="md:hidden text-white hover:text-brand-pink transition-colors z-60"
+      >
+        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 bg-[#080808] z-55 flex flex-col items-center justify-center gap-8 md:hidden"
+          >
+            <div className="flex flex-col items-center gap-10">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  onClick={closeMenu}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * i }}
+                  className="text-2xl tracking-[0.3em] font-black text-white hover:text-brand-pink transition-all no-underline"
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                {isLoggedIn ? (
+                  <Link
+                    to="/admin"
+                    onClick={closeMenu}
+                    className="text-2xl tracking-[0.3em] font-black text-brand-pink no-underline"
+                  >
+                    ADMIN
+                  </Link>
+                ) : (
+                  <Link
+                    to="/login"
+                    onClick={closeMenu}
+                    className="text-2xl tracking-[0.3em] font-black text-white hover:text-brand-pink transition-all no-underline"
+                  >
+                    LOGIN
+                  </Link>
+                )}
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 };

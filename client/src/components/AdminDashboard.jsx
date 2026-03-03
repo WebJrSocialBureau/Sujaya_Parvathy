@@ -177,28 +177,28 @@ const AdminDashboard = () => {
                       <span className="text-[8px] tracking-[0.2em] font-black text-brand-pink uppercase bg-brand-pink/10 px-2 py-1 rounded">
                         {blog.category}
                       </span>
-                      <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="flex gap-1.5 sm:gap-2">
                         <Link
                           to={`/blog/${blog._id}`}
                           target="_blank"
-                          className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+                          className="p-2 sm:p-2.5 bg-white/5 hover:bg-brand-pink/20 rounded-lg transition-all group/btn"
                           title="View Live"
                         >
-                          <Eye className="w-4 h-4 text-white/40" />
+                          <Eye className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white/50 group-hover/btn:text-brand-pink" />
                         </Link>
                         <button
                           onClick={() => openForm(blog)}
-                          className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+                          className="p-2 sm:p-2.5 bg-white/5 hover:bg-brand-pink/20 rounded-lg transition-all group/btn"
                           title="Edit"
                         >
-                          <Edit2 className="w-4 h-4 text-white/40" />
+                          <Edit2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white/50 group-hover/btn:text-brand-pink" />
                         </button>
                         <button
                           onClick={() => handleDelete(blog._id)}
-                          className="p-2 hover:bg-red-500/20 rounded-lg transition-colors"
+                          className="p-2 sm:p-2.5 bg-white/5 hover:bg-red-500/10 rounded-lg transition-all group/btn"
                           title="Delete"
                         >
-                          <Trash2 className="w-4 h-4 text-red-500/50" />
+                          <Trash2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-500/40 group-hover/btn:text-red-500" />
                         </button>
                       </div>
                     </div>

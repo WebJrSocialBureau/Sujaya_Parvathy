@@ -5,29 +5,29 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative bg-[#080808] py-20 lg:py-40 px-6 sm:px-8 lg:px-16 overflow-hidden"
+      className="relative bg-[#080808] py-20 lg:py-40 px-6 sm:px-8 lg:px-16 overflow-hidden w-full"
     >
       {/* Background Decorative Text */}
-      <div className="absolute top-10 lg:top-20 right-[-10%] text-[20vw] lg:text-[15vw] font-black text-white/2 select-none pointer-events-none uppercase whitespace-nowrap overflow-hidden">
+      <div className="absolute top-10 lg:top-20 right-0 text-[12vw] lg:text-[10vw] font-black text-white/2 select-none pointer-events-none uppercase whitespace-nowrap opacity-30 z-0">
         Philosophy
       </div>
 
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-12 gap-8 lg:gap-24">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
           {/* Left Column: Philosophical Quote */}
-          <div className="col-span-12 lg:col-span-6">
+          <div className="w-full lg:w-1/2">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
             >
-              <h2 className="text-brand-pink text-[9px] lg:text-[10px] tracking-[0.5em] font-black uppercase mb-6 lg:mb-8 flex items-center gap-4">
+              <h2 className="text-brand-pink text-[9px] lg:text-[10px] tracking-[0.5em] font-black uppercase mb-6 lg:mb-8 flex items-center justify-center lg:justify-start gap-4">
                 <span className="w-8 lg:w-12 h-px bg-brand-pink"></span>
                 The Foundation
               </h2>
 
-              <blockquote className="text-xl sm:text-3xl lg:text-5xl font-light italic leading-tight tracking-tight text-white/90">
+              <blockquote className="text-xl sm:text-3xl lg:text-5xl font-light italic leading-tight tracking-tight text-white/90 text-center lg:text-left">
                 "I believe that a{" "}
                 <span className="text-brand-pink font-bold not-italic">
                   free and independent press
@@ -36,7 +36,7 @@ const About = () => {
                 public interest above all else."
               </blockquote>
 
-              <div className="mt-8 lg:mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              <div className="mt-8 lg:mt-12 flex flex-col sm:flex-row items-center lg:items-center justify-center lg:justify-start gap-6 text-center lg:text-left">
                 <div>
                   <p className="text-white font-bold tracking-widest text-[9px] lg:text-xs uppercase">
                     SUJAYA PARVATHY
@@ -50,7 +50,7 @@ const About = () => {
           </div>
 
           {/* Right Column: Professional Summary */}
-          <div className="col-span-12 lg:col-span-6 lg:pt-20">
+          <div className="w-full lg:w-1/2 lg:pt-20">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}

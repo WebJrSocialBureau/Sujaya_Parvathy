@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Instagram, Twitter, Youtube, Facebook, Linkedin } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 const Hero = () => {
   const { scrollY } = useScroll();
@@ -16,6 +17,17 @@ const Hero = () => {
   ];
   return (
     <div className="relative min-h-screen w-full bg-[#080808] text-white overflow-hidden selection:bg-brand-pink/30">
+      <Helmet>
+        <title>
+          Sujaya Parvathy | Award Winning Journalist & Multimedia Storyteller
+        </title>
+        <meta
+          name="description"
+          content="Official website of Sujaya Parvathy - Crafting compelling narratives through multimedia storytelling. A voice that resonates with truth and integrity."
+        />
+        <link rel="canonical" href="https://sujayaparvathy.com/" />
+        <meta name="robots" content="index, follow" />
+      </Helmet>
       {/* Background Grid Accent */}
       <div
         className="absolute inset-0 z-0 opacity-20 pointer-events-none"
@@ -34,7 +46,7 @@ const Hero = () => {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="mb-4 lg:mb-6 flex items-center gap-4"
+            className="mb-4 lg:mb-6 flex items-center justify-center lg:justify-start gap-4"
           >
             <div className="w-8 lg:w-12 h-[1px] bg-brand-pink"></div>
             <span className="text-brand-pink text-[8px] lg:text-[10px] tracking-[0.5em] font-black uppercase">
@@ -51,7 +63,7 @@ const Hero = () => {
                 ease: [0.22, 1, 0.36, 1],
                 delay: 0.7,
               }}
-              className="text-4xl sm:text-[15vw] lg:text-[9vw] leading-[0.9] lg:leading-[0.8] font-black tracking-tighter m-0 uppercase break-words"
+              className="text-4xl sm:text-[15vw] lg:text-[9vw] leading-[0.9] lg:leading-[0.8] font-black tracking-tighter m-0 uppercase break-words text-center lg:text-left"
             >
               SUJAYA <br />
               <span className="stroke-outline">PARVATHY</span>
@@ -60,7 +72,7 @@ const Hero = () => {
             {/* Background Text Accent */}
             <motion.div
               style={{ y: y1 }}
-              className="absolute -top-10 -left-6 text-[15vw] lg:text-[20vw] font-black text-white/[0.03] select-none pointer-events-none z-[-1] whitespace-nowrap"
+              className="absolute -top-10 left-0 text-[10vw] lg:text-[15vw] font-black text-white/2 select-none pointer-events-none z-[-1] whitespace-nowrap opacity-20"
             >
               IMPACT
             </motion.div>
@@ -70,7 +82,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.5 }}
-            className="max-w-md text-white/40 text-sm mt-10 leading-relaxed font-light tracking-wide lg:ml-2"
+            className="max-w-md text-white/40 text-sm mt-10 leading-relaxed font-light tracking-wide lg:ml-2 text-center lg:text-left mx-auto lg:mx-0"
           >
             Crafting compelling narratives through multimedia storytelling. A
             voice that resonates with truth and integrity in the digital
@@ -98,7 +110,7 @@ const Hero = () => {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="absolute z-0 w-[120%] h-[120%] bg-brand-pink/10 blur-[150px] rounded-full"
+            className="absolute z-0 w-full h-full bg-brand-pink/10 blur-[100px] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
           />
 
           <motion.div
@@ -114,8 +126,11 @@ const Hero = () => {
             {/* The Image */}
             <div className="relative w-full h-full overflow-hidden rounded-xl shadow-2xl group">
               <img
-                src="/Hero_Section.png"
+                src="https://res.cloudinary.com/dfwlj6k8j/image/upload/v1772513266/Hero_Section_okw0bz.webp"
                 alt="Sujaya Parvathy"
+                fetchpriority="high"
+                width="800"
+                height="1067"
                 className="w-full h-full object-cover grayscale brightness-110 contrast-110 group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100"
               />
               {/* Pinkish Edge Glow */}
