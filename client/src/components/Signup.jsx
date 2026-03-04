@@ -78,8 +78,8 @@ const Signup = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-white/[0.03] border border-white/10 rounded-xl py-4 pl-12 pr-4 text-sm focus:outline-none focus:border-brand-pink/50 transition-all"
-                placeholder="sujaya@example.com"
+                className="w-full bg-white/3 border border-white/10 rounded-xl py-4 pl-12 pr-4 text-sm focus:outline-none focus:border-brand-pink/50 transition-all"
+                placeholder="sujayaparvathy.time7@gmail.com"
                 required
               />
             </div>
@@ -95,7 +95,7 @@ const Signup = () => {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-white/[0.03] border border-white/10 rounded-xl py-4 pl-12 pr-4 text-sm focus:outline-none focus:border-brand-pink/50 transition-all"
+                className="w-full bg-white/3 border border-white/10 rounded-xl py-4 pl-12 pr-4 text-sm focus:outline-none focus:border-brand-pink/50 transition-all"
                 placeholder="••••••••"
                 required
               />

@@ -1,17 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import BackToTop from "./BackToTop";
-import {
-  Instagram,
-  Twitter,
-  Youtube,
-  Facebook,
-  Linkedin,
-} from "lucide-react";
+import { Instagram, Twitter, Youtube, Facebook, Linkedin } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer id="contact" className="bg-[#050505] pt-16 lg:pt-24 pb-12 px-6 lg:px-16 border-t border-white/5 relative overflow-hidden">
+    <footer
+      id="contact"
+      className="bg-[#050505] pt-16 lg:pt-24 pb-12 px-6 lg:px-16 border-t border-white/5 relative overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Main Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
@@ -21,14 +18,16 @@ const Footer = () => {
               SUJAYA PARVATHY
             </h3>
             <p className="text-white/40 text-[9px] leading-relaxed font-light max-w-xs">
-              Media leader and broadcast journalist dedicated to editorial excellence and journalistic independence.
+              Media leader and broadcast journalist dedicated to editorial
+              excellence and journalistic independence.
             </p>
             <a href="https://bigtv24x7.com">
               <img
                 src="/LOGO (2).png"
                 alt="Big TV Logo"
                 className="w-32 h-auto mb-8"
-              /></a>
+              />
+            </a>
           </div>
 
           {/* Column 2 - Navigation */}
@@ -57,8 +56,7 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3 text-white/40 text-[9px] tracking-widest uppercase">
               <li>Kochi, Kerala, IN</li>
-              <li className="break-all">editorial@sujayap.com</li>
-              <li className="break-all">media.inquiries@bigtv.com</li>
+              <li className="break-all">sujayaparvathy.time7@gmail.com</li>
             </ul>
           </div>
 
