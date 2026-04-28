@@ -126,7 +126,7 @@ const Hero = () => {
             {/* The Image */}
             <div className="relative w-full h-full overflow-hidden rounded-xl shadow-2xl group">
               <img
-                src="https://res.cloudinary.com/dfwlj6k8j/image/upload/v1772513266/Hero_Section_okw0bz.webp"
+                src="https://res.cloudinary.com/dpfpenhqc/image/upload/q_auto/f_auto/v1777366804/iy8mbrsuzzaraf6c0for_jewnf0.jpg"
                 alt="Sujaya Parvathy"
                 fetchpriority="high"
                 width="800"
