@@ -66,38 +66,67 @@ const Footer = () => {
               Follow
             </h4>
             <div className="flex gap-3">
-              {[Instagram, Twitter, Youtube, Facebook, Linkedin].map(
-                (Icon, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-brand-pink hover:border-brand-pink transition-all"
-                  >
-                    <Icon size={12} strokeWidth={1.5} />
-                  </a>
-                ),
-              )}
+              {
+                // Order: Instagram, X (Twitter icon), Youtube, Facebook, Linkedin
+                (() => {
+                  const socialLinks = [
+                    "https://www.instagram.com/sujayaparvathy/",
+                    "https://x.com/sujayaparvathy",
+                    "https://www.youtube.com/@bigtv24x7live",
+                    "https://www.facebook.com/sujaya.parvathys/",
+                    "https://www.linkedin.com/in/sujaya-parvathy-s-84859714b/",
+                  ];
+
+                  const socialLabels = [
+                    "Instagram",
+                    "X",
+                    "YouTube",
+                    "Facebook",
+                    "LinkedIn",
+                  ];
+
+                  return [Instagram, Twitter, Youtube, Facebook, Linkedin].map(
+                    (Icon, i) => (
+                      <a
+                        key={i}
+                        href={socialLinks[i]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={socialLabels[i]}
+                        className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 hover:text-brand-pink hover:border-brand-pink transition-all"
+                      >
+                        <Icon size={16} strokeWidth={1.5} />
+                      </a>
+                    ),
+                  );
+                })()
+              }
             </div>
           </div>
         </div>
 
         {/* Bottom Section */}
         <div className="pt-3 flex flex-col md:flex-row justify-between items-center gap-6">
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-gray-400 text-[8px] tracking-widest font-light"
+            className="w-full"
           >
-            Designed by{" "}
-            <a
-              style={{ fontFamily: "MyFont, sans-serif" }}
-              href="https://socialbureau.in"
-              className="text-white/60 hover:text-brand-pink transition-colors"
-            >
-              Social<span className="text-[#ff0000]">B</span>ureau
-            </a>
-          </motion.p>
+            <div className="max-w-7xl mx-auto px-6 md:px-12 py-8">
+              <div className="flex flex-row items-center gap-3 text-[9px] md:text-[11px] font-bold text-muted uppercase tracking-[0.2em] mt-6 justify-start w-full text-left">
+                <span>POWERED BY</span>
+
+                <a href="https://www.socialbureau.in/enquiry-form" target="_blank" rel="noopener noreferrer" className="flex justify-start items-center">
+                  <img
+                    src="https://www.socialbureau.in/assets/logo.webp"
+                    alt="SocialBureau"
+                    className="h-5 md:h-8 w-auto"
+                  />
+                </a>
+              </div>
+            </div>
+          </motion.div>
 
           <BackToTop />
         </div>

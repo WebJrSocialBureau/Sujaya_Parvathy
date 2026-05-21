@@ -151,15 +151,30 @@ const Hero = () => {
         className="fixed bottom-12 right-12 z-50 hidden lg:flex flex-col gap-6 items-center"
       >
         <div className="w-[1px] h-20 bg-gradient-to-t from-brand-pink/50 to-transparent mb-2"></div>
-        {socials.map((social, i) => (
-          <a
-            key={social.label}
-            href="#"
-            className="text-white/40 hover:text-brand-pink transition-colors"
-          >
-            <social.icon size={16} strokeWidth={1.5} />
-          </a>
-        ))}
+        {
+          (() => {
+            const socialLinks = [
+              "https://www.instagram.com/sujayaparvathy/",
+              "https://x.com/sujayaparvathy",
+              "https://www.youtube.com/@bigtv24x7live",
+              "https://www.facebook.com/sujaya.parvathys/",
+              "https://www.linkedin.com/in/sujaya-parvathy-s-84859714b/",
+            ];
+
+            return socials.map((social, i) => (
+              <a
+                key={social.label}
+                href={socialLinks[i]}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                className="text-white/40 hover:text-brand-pink transition-colors"
+              >
+                <social.icon size={20} strokeWidth={1.5} />
+              </a>
+            ));
+          })()
+        }
       </motion.div>
 
       {/* Styles */}
