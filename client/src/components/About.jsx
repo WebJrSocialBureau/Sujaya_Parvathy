@@ -7,7 +7,7 @@ const About = () => {
       id="about"
       className="relative bg-[#080808] py-20 lg:py-40 px-6 sm:px-8 lg:px-16 overflow-hidden w-full"
     >
-      {/* Background Decorative Text */}
+      {/* Background Decorative Text .....*/}
       <div className="absolute top-10 lg:top-20 right-0 text-[12vw] lg:text-[10vw] font-black text-white/2 select-none pointer-events-none uppercase whitespace-nowrap opacity-30 z-0">
         Philosophy
       </div>
@@ -49,7 +49,10 @@ const About = () => {
             </motion.div>
           </div>
 
-          {/* Right Column: Professional Summary */}
+         
+
+
+         
           <div className="w-full lg:w-1/2 lg:pt-20">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
