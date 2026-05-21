@@ -105,7 +105,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Section */}
+        {/* Bottom Section .....*/}
         <div className="pt-3 flex flex-col md:flex-row justify-between items-center gap-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
