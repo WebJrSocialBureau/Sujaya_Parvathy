@@ -56,7 +56,7 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3 text-white/40 text-[9px] tracking-widest uppercase">
               <li>Kochi, Kerala, IN</li>
-              <li className="break-all">sujayaparvathy.time7@gmail.com</li>
+              <li className="break-all">sujayaparvathy@gmail.com</li>
             </ul>
           </div>
 
